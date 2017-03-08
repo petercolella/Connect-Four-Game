@@ -20,10 +20,11 @@ h1 {
 .square {
 	border: 5px solid black;
 	border-radius: 50%;
-	background-color: white;
 	margin: 5px;
 	height: 100px;
 	width: 100px;
+	cursor: pointer;
+	background-color: white;
 }
 
 .row {
@@ -32,7 +33,11 @@ h1 {
 	justify-content: center;
 }
 
-#b6 {
+.black {
+	background-color: black;
+}
+
+.red {
 	background-color: red;
 }
 
