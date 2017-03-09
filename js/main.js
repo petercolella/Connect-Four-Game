@@ -4,24 +4,27 @@ $(document).ready(function() {
     var table = $('table');
     var turn = $('#turn');
     var gameRunnung = true;
+    var moves = 1;
 
     $('td').click(function() {
     	if (gameRunnung) {
-    	td = $(this);
-    	var square = squareHasChecker(td);
-    	if (!square) {
-    		var checker = whichCheckerForCurrentPlayer(player);
-    		chooseSquare(td, checker);
-    		if (hasPlayerWon(table, checker)) {
-    			// setTimeout(alert('Player ' + player + ' is the winner!'), 10);
-    			winner();
-    		} else {
-    			player = nextPlayer(player);
-    			whosTurnIsIt(turn, player);
-    		}
-    	} else {
-    		alert('This square already has a checker!');
-    	}
+    		td = $(this);
+    		var square = squareHasChecker(td);
+	    	if (!square) {
+	    		var checker = whichCheckerForCurrentPlayer(player);
+	    		chooseSquare(td, checker);
+	    		if (moves > 41) {
+	    			alert('The board is full. There are no more moves!')
+	    		} else if (hasPlayerWon(table, checker)) {
+	    			winner();
+	    		} else {
+	    			player = nextPlayer(player);
+	    			whosTurnIsIt(turn, player);
+	    			moves = moves + 1;
+	    		}
+	    	} else {
+	    		alert('This square already has a checker!');
+	    	}
     	} else {
     		alert('Game over man, game over!');
     	}
@@ -29,6 +32,8 @@ $(document).ready(function() {
 
     $('.btn').click(function() {
     	player = 1;
+    	gameRunnung = true;
+    	moves = 1;
     	reset(table);
     	whosTurnIsIt(turn, player);
     })
@@ -208,9 +213,7 @@ $(document).ready(function() {
     function reset(table) {
     	table.find('td').each(function() {
     		$(this).removeClass('black').removeClass('red');
-    	}
-    	);
-    	return gameRunnung = true;
+    	})
     }
 
     function winner() {
