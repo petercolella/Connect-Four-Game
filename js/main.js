@@ -68,11 +68,11 @@ $(document).ready(function() {
 
     function whosTurnIsIt(turn, player) {
     	turn.html("It's your turn Player " + player + "!");
-    	// if (player == 1) {
-    	// 	turn.text("Black");
-    	// } else {
-    	// 	turn.text("Red");
-    	// }
+    	if (player == 1) {
+    		$('#turn').css("background", "black").css("color", "white");
+    	} else {
+    		$('#turn').css("background", "red").css("color", "white");
+    	}
     }
 
     function hasPlayerWon(table, checker) {
