@@ -1,14 +1,14 @@
 $(document).ready(function() {
     console.log( "ready!" );
 
-    $('#new-game').click(function() {
-    	$('.square').css('background-color', 'white');
-    	alert($('#turn').text());
-    });
+    // $('#new-game').click(function() {
+    // 	$('.square').css('background-color', 'white');
+    // 	alert($('#turn').text());
+    // });
 
     var player = 1;
     var table = $('table');
-    var turn = $('#player-turn');
+    var turn = $('#turn');
 
     $('td').click(function() {
     	td = $(this);
@@ -17,8 +17,8 @@ $(document).ready(function() {
     		var checker = whichCheckerForCurrentPlayer(player);
     		chooseSquare(td, checker);
     		if (hasPlayerWon(table, checker)) {
-    			alert("player + 'has won!'");
-    			turn.text('');
+    			// setTimeout(alert('Player ' + player + ' is the winner!'), 10);
+    			winner();
     		} else {
     			player = nextPlayer(player);
     			whosTurnIsIt(turn, player);
@@ -28,10 +28,10 @@ $(document).ready(function() {
     	}
     });
 
-    $('.reset').click(function() {
+    $('.btn').click(function() {
     	player = 1;
     	reset(table);
-    	whosTurnIsIt(trun, player);
+    	whosTurnIsIt(turn, player);
     })
 
     function squareHasChecker(td) {
@@ -63,21 +63,30 @@ $(document).ready(function() {
     }
 
     function whosTurnIsIt(turn, player) {
-    	if (player == 1) {
-    		turn.text("Black");
-    	} else {
-    		turn.text("Red");
-    	}
+    	turn.html("It's your turn Player " + player + "!");
+    	// if (player == 1) {
+    	// 	turn.text("Black");
+    	// } else {
+    	// 	turn.text("Red");
+    	// }
     }
 
     function hasPlayerWon(table, checker) {
-    	false;
-    }
+    	var won = 0;
+    	if (table.find('#a1').hasClass(checker) && table.find('#a2').hasClass(checker) && table.find('#a3').hasClass(checker) && table.find('#a4').hasClass(checker)) {
+    	won = 1;
+    	} return won;
+	}
 
     function reset(table) {
     	table.find('td').each(function() {
     		$(this).removeClass('black').removeClass('red');
     	});
+    }
+
+    function winner() {
+    	whichCheckerForCurrentPlayer(player);
+    	setTimeout(alert('Player ' + player + ' is the winner!'), 10);
     }
     
 });

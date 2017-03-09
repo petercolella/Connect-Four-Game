@@ -17,6 +17,10 @@ h1 {
 	border: 2px solid black;
 }
 
+td {
+	border: 2px solid black;
+}
+
 .square {
 	border: 5px solid black;
 	border-radius: 50%;
@@ -43,8 +47,44 @@ h1 {
 
 .scoreboard {
 	display: flex;
+	justify-content: center;
+	text-align: center;
 }
 
 .player {
-	margin: 25px;
+	/*display: flex;
+	flex-direction: column;
+	justify-content: center;*/
 }
+
+#turn {
+	width: 300px;
+	text-align: center;
+}
+
+.btn {
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	align-content: center;
+  	flex-wrap: wrap;
+  	width: 100px;
+  	margin: 0 auto;
+  	min-height: 30px;
+  	cursor: pointer;
+  	/*flex: 1 1 auto;
+  	margin: 10px;
+  	padding: 30px;
+  	text-align: center;
+  	text-transform: uppercase;
+  	transition: 0.5s;
+  	background-size: 200% auto;
+  	color: white;
+  	box-shadow: 0 0 20px #eee;
+  	border-radius: 10px;
+  	background-image: linear-gradient(to right, #a1c4fd 0%, #c2e9fb 51%, #a1c4fd 100%);*/
+}
+
+/*.btn:hover {
+	background-position: right center;
+}*/
