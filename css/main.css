@@ -7,7 +7,8 @@ body {
 
 h1 {
 	color: red;
-	font-size: 500%;
+	font-size: 300%;
+	margin: 0px;
 }
 
 .grid {
@@ -22,11 +23,11 @@ td {
 }
 
 .square {
-	border: 5px solid black;
+	border: 3px solid black;
 	border-radius: 50%;
-	margin: 5px;
-	height: 100px;
-	width: 100px;
+	margin: 3px;
+	height: 75px;
+	width: 75px;
 	cursor: pointer;
 	background-color: white;
 }

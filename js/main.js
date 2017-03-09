@@ -1,11 +1,5 @@
 $(document).ready(function() {
-    console.log( "ready!" );
-
-    // $('#new-game').click(function() {
-    // 	$('.square').css('background-color', 'white');
-    // 	alert($('#turn').text());
-    // });
-
+    
     var player = 1;
     var table = $('table');
     var turn = $('#turn');
@@ -75,7 +69,135 @@ $(document).ready(function() {
     	var won = 0;
     	if (table.find('#a1').hasClass(checker) && table.find('#a2').hasClass(checker) && table.find('#a3').hasClass(checker) && table.find('#a4').hasClass(checker)) {
     	won = 1;
-    	} return won;
+    	} else if (table.find('#a2').hasClass(checker) && table.find('#a3').hasClass(checker) && table.find('#a4').hasClass(checker) && table.find('#a5').hasClass(checker)) {
+    	won = 1;
+    	} else if (table.find('#a3').hasClass(checker) && table.find('#a4').hasClass(checker) && table.find('#a5').hasClass(checker) && table.find('#a6').hasClass(checker)) {
+    	won = 1;
+    	} else if (table.find('#a4').hasClass(checker) && table.find('#a5').hasClass(checker) && table.find('#a6').hasClass(checker) && table.find('#a7').hasClass(checker)) {
+    	won = 1;
+    	}
+    	else if (table.find('#b1').hasClass(checker) && table.find('#b2').hasClass(checker) && table.find('#b3').hasClass(checker) && table.find('#b4').hasClass(checker)) {
+    	won = 1;
+    	} else if (table.find('#b2').hasClass(checker) && table.find('#b3').hasClass(checker) && table.find('#b4').hasClass(checker) && table.find('#b5').hasClass(checker)) {
+    	won = 1;
+    	} else if (table.find('#b3').hasClass(checker) && table.find('#b4').hasClass(checker) && table.find('#b5').hasClass(checker) && table.find('#b6').hasClass(checker)) {
+    	won = 1;
+    	} else if (table.find('#b4').hasClass(checker) && table.find('#b5').hasClass(checker) && table.find('#b6').hasClass(checker) && table.find('#b7').hasClass(checker)) {
+    	won = 1;
+    	}
+    	else if (table.find('#c1').hasClass(checker) && table.find('#c2').hasClass(checker) && table.find('#c3').hasClass(checker) && table.find('#c4').hasClass(checker)) {
+    	won = 1;
+    	} else if (table.find('#c2').hasClass(checker) && table.find('#c3').hasClass(checker) && table.find('#c4').hasClass(checker) && table.find('#c5').hasClass(checker)) {
+    	won = 1;
+    	} else if (table.find('#c3').hasClass(checker) && table.find('#c4').hasClass(checker) && table.find('#c5').hasClass(checker) && table.find('#c6').hasClass(checker)) {
+    	won = 1;
+    	} else if (table.find('#c4').hasClass(checker) && table.find('#c5').hasClass(checker) && table.find('#c6').hasClass(checker) && table.find('#c7').hasClass(checker)) {
+    	won = 1;
+    	}
+    	else if (table.find('#d1').hasClass(checker) && table.find('#d2').hasClass(checker) && table.find('#d3').hasClass(checker) && table.find('#d4').hasClass(checker)) {
+    	won = 1;
+    	} else if (table.find('#d2').hasClass(checker) && table.find('#d3').hasClass(checker) && table.find('#d4').hasClass(checker) && table.find('#d5').hasClass(checker)) {
+    	won = 1;
+    	} else if (table.find('#d3').hasClass(checker) && table.find('#d4').hasClass(checker) && table.find('#d5').hasClass(checker) && table.find('#d6').hasClass(checker)) {
+    	won = 1;
+    	} else if (table.find('#d4').hasClass(checker) && table.find('#d5').hasClass(checker) && table.find('#d6').hasClass(checker) && table.find('#d7').hasClass(checker)) {
+    	won = 1;
+    	}
+    	else if (table.find('#e1').hasClass(checker) && table.find('#e2').hasClass(checker) && table.find('#e3').hasClass(checker) && table.find('#e4').hasClass(checker)) {
+    	won = 1;
+    	} else if (table.find('#e2').hasClass(checker) && table.find('#e3').hasClass(checker) && table.find('#e4').hasClass(checker) && table.find('#e5').hasClass(checker)) {
+    	won = 1;
+    	} else if (table.find('#e3').hasClass(checker) && table.find('#e4').hasClass(checker) && table.find('#e5').hasClass(checker) && table.find('#e6').hasClass(checker)) {
+    	won = 1;
+    	} else if (table.find('#e4').hasClass(checker) && table.find('#e5').hasClass(checker) && table.find('#e6').hasClass(checker) && table.find('#e7').hasClass(checker)) {
+    	won = 1;
+    	}
+    	else if (table.find('#f1').hasClass(checker) && table.find('#f2').hasClass(checker) && table.find('#f3').hasClass(checker) && table.find('#f4').hasClass(checker)) {
+    	won = 1;
+    	} else if (table.find('#f2').hasClass(checker) && table.find('#f3').hasClass(checker) && table.find('#f4').hasClass(checker) && table.find('#f5').hasClass(checker)) {
+    	won = 1;
+    	} else if (table.find('#f3').hasClass(checker) && table.find('#f4').hasClass(checker) && table.find('#f5').hasClass(checker) && table.find('#f6').hasClass(checker)) {
+    	won = 1;
+    	} else if (table.find('#f4').hasClass(checker) && table.find('#f5').hasClass(checker) && table.find('#f6').hasClass(checker) && table.find('#f7').hasClass(checker)) {
+    	won = 1;
+    	}
+    	else if (table.find('#a1').hasClass(checker) && table.find('#b1').hasClass(checker) && table.find('#c1').hasClass(checker) && table.find('#d1').hasClass(checker)) {
+    	won = 1;
+    	} else if (table.find('#b1').hasClass(checker) && table.find('#c1').hasClass(checker) && table.find('#d1').hasClass(checker) && table.find('#e1').hasClass(checker)) {
+    	won = 1;
+    	} else if (table.find('#c1').hasClass(checker) && table.find('#d1').hasClass(checker) && table.find('#e1').hasClass(checker) && table.find('#f1').hasClass(checker)) {
+    	won = 1;
+    	}
+    	else if (table.find('#a2').hasClass(checker) && table.find('#b2').hasClass(checker) && table.find('#c2').hasClass(checker) && table.find('#d2').hasClass(checker)) {
+    	won = 1;
+    	} else if (table.find('#b2').hasClass(checker) && table.find('#c2').hasClass(checker) && table.find('#d2').hasClass(checker) && table.find('#e2').hasClass(checker)) {
+    	won = 1;
+    	} else if (table.find('#c2').hasClass(checker) && table.find('#d2').hasClass(checker) && table.find('#e2').hasClass(checker) && table.find('#f2').hasClass(checker)) {
+    	won = 1;
+    	}
+    	else if (table.find('#a3').hasClass(checker) && table.find('#b3').hasClass(checker) && table.find('#c3').hasClass(checker) && table.find('#d3').hasClass(checker)) {
+    	won = 1;
+    	} else if (table.find('#b3').hasClass(checker) && table.find('#c3').hasClass(checker) && table.find('#d3').hasClass(checker) && table.find('#e3').hasClass(checker)) {
+    	won = 1;
+    	} else if (table.find('#c3').hasClass(checker) && table.find('#d3').hasClass(checker) && table.find('#e3').hasClass(checker) && table.find('#f3').hasClass(checker)) {
+    	won = 1;
+    	}
+    	else if (table.find('#a4').hasClass(checker) && table.find('#b4').hasClass(checker) && table.find('#c4').hasClass(checker) && table.find('#d4').hasClass(checker)) {
+    	won = 1;
+    	} else if (table.find('#b4').hasClass(checker) && table.find('#c4').hasClass(checker) && table.find('#d4').hasClass(checker) && table.find('#e4').hasClass(checker)) {
+    	won = 1;
+    	} else if (table.find('#c4').hasClass(checker) && table.find('#d4').hasClass(checker) && table.find('#e4').hasClass(checker) && table.find('#f4').hasClass(checker)) {
+    	won = 1;
+    	}
+    	else if (table.find('#a5').hasClass(checker) && table.find('#b5').hasClass(checker) && table.find('#c5').hasClass(checker) && table.find('#d5').hasClass(checker)) {
+    	won = 1;
+    	} else if (table.find('#b5').hasClass(checker) && table.find('#c5').hasClass(checker) && table.find('#d5').hasClass(checker) && table.find('#e5').hasClass(checker)) {
+    	won = 1;
+    	} else if (table.find('#c5').hasClass(checker) && table.find('#d5').hasClass(checker) && table.find('#e5').hasClass(checker) && table.find('#f5').hasClass(checker)) {
+    	won = 1;
+    	}
+    	else if (table.find('#a6').hasClass(checker) && table.find('#b6').hasClass(checker) && table.find('#c6').hasClass(checker) && table.find('#d6').hasClass(checker)) {
+    	won = 1;
+    	} else if (table.find('#b6').hasClass(checker) && table.find('#c6').hasClass(checker) && table.find('#d6').hasClass(checker) && table.find('#e6').hasClass(checker)) {
+    	won = 1;
+    	} else if (table.find('#c6').hasClass(checker) && table.find('#d6').hasClass(checker) && table.find('#e6').hasClass(checker) && table.find('#f6').hasClass(checker)) {
+    	won = 1;
+    	}
+    	else if (table.find('#a7').hasClass(checker) && table.find('#b7').hasClass(checker) && table.find('#c7').hasClass(checker) && table.find('#d7').hasClass(checker)) {
+    	won = 1;
+    	} else if (table.find('#b7').hasClass(checker) && table.find('#c7').hasClass(checker) && table.find('#d7').hasClass(checker) && table.find('#e7').hasClass(checker)) {
+    	won = 1;
+    	} else if (table.find('#c7').hasClass(checker) && table.find('#d7').hasClass(checker) && table.find('#e7').hasClass(checker) && table.find('#f7').hasClass(checker)) {
+    	won = 1;
+    	}
+    	else if (table.find('#a4').hasClass(checker) && table.find('#b3').hasClass(checker) && table.find('#c2').hasClass(checker) && table.find('#d1').hasClass(checker)) {
+    	won = 1;
+    	} else if (table.find('#a5').hasClass(checker) && table.find('#b4').hasClass(checker) && table.find('#c3').hasClass(checker) && table.find('#d2').hasClass(checker)) {
+    	won = 1;
+    	} else if (table.find('#a6').hasClass(checker) && table.find('#b5').hasClass(checker) && table.find('#c4').hasClass(checker) && table.find('#d3').hasClass(checker)) {
+    	won = 1;
+    	} else if (table.find('#a7').hasClass(checker) && table.find('#b6').hasClass(checker) && table.find('#c5').hasClass(checker) && table.find('#d4').hasClass(checker)) {
+    	won = 1;
+    	}
+    	else if (table.find('#b4').hasClass(checker) && table.find('#c3').hasClass(checker) && table.find('#d2').hasClass(checker) && table.find('#e1').hasClass(checker)) {
+    	won = 1;
+    	} else if (table.find('#b5').hasClass(checker) && table.find('#c4').hasClass(checker) && table.find('#d3').hasClass(checker) && table.find('#e2').hasClass(checker)) {
+    	won = 1;
+    	} else if (table.find('#b6').hasClass(checker) && table.find('#c5').hasClass(checker) && table.find('#d4').hasClass(checker) && table.find('#e3').hasClass(checker)) {
+    	won = 1;
+    	} else if (table.find('#b7').hasClass(checker) && table.find('#c6').hasClass(checker) && table.find('#d5').hasClass(checker) && table.find('#e4').hasClass(checker)) {
+    	won = 1;
+    	}
+    	else if (table.find('#c4').hasClass(checker) && table.find('#d3').hasClass(checker) && table.find('#e2').hasClass(checker) && table.find('#f1').hasClass(checker)) {
+    	won = 1;
+    	} else if (table.find('#c5').hasClass(checker) && table.find('#d4').hasClass(checker) && table.find('#e3').hasClass(checker) && table.find('#f2').hasClass(checker)) {
+    	won = 1;
+    	} else if (table.find('#c6').hasClass(checker) && table.find('#d5').hasClass(checker) && table.find('#e4').hasClass(checker) && table.find('#f3').hasClass(checker)) {
+    	won = 1;
+    	} else if (table.find('#c7').hasClass(checker) && table.find('#d6').hasClass(checker) && table.find('#e5').hasClass(checker) && table.find('#f4').hasClass(checker)) {
+    	won = 1;
+    	}
+    	return won;
 	}
 
     function reset(table) {
