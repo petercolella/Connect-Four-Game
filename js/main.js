@@ -40,6 +40,12 @@ $(document).ready(function() {
     	whosTurnIsIt(turn, player);
     })
 
+    function isNextSquareDownEmpty(td) {
+    	var id = $('td').attr('id');
+    	var idToString = id.toString;
+
+    }
+
     function squareHasChecker(td) {
     	if (td.hasClass('black') || td.hasClass('red')) {
     		return 1;
@@ -49,7 +55,12 @@ $(document).ready(function() {
     }
 
     function chooseSquare(td, checker) {
-    	return td.addClass(checker);
+    	// return td.addClass(checker);
+    	if (player == 1) {
+			return td.addClass(checker).append("<img class='piece' src='images/black_checker.jpg'/>");    		
+    	} else {
+    		return td.addClass(checker).append("<img class='piece' src='images/red_checker.jpg'/>");
+    	}
     }
 
     function whichCheckerForCurrentPlayer(player) {
@@ -214,7 +225,7 @@ $(document).ready(function() {
 
     function reset(table) {
     	table.find('td').each(function() {
-    		$(this).removeClass('black').removeClass('red');
+    		$(this).removeClass('black').removeClass('red').empty();
     	})
     }
 

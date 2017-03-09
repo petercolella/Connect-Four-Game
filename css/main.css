@@ -46,6 +46,12 @@ td {
 	background-color: red;
 }
 
+.piece {
+	height: 75px;
+	width: 75px;
+	border-radius: 50%;
+}
+
 .scoreboard {
 	display: flex;
 	justify-content: center;
