@@ -5,6 +5,8 @@ $(document).ready(function() {
     var turn = $('#turn');
     var gameRunnung = true;
     var moves = 1;
+    var playerOneWins = 0;
+    var playerTwoWins = 0;
 
     $('td').click(function() {
     	if (gameRunnung) {
@@ -20,7 +22,7 @@ $(document).ready(function() {
 	    		} else {
 	    			player = nextPlayer(player);
 	    			whosTurnIsIt(turn, player);
-	    			moves = moves + 1;
+	    			moves++;
 	    		}
 	    	} else {
 	    		alert('This square already has a checker!');
@@ -218,7 +220,14 @@ $(document).ready(function() {
 
     function winner() {
     	whichCheckerForCurrentPlayer(player);
-    	setTimeout(alert('Player ' + player + ' is the winner!'), 10);
+    	alert('Player ' + player + ' is the winner!');
+    	if (player == 1) {
+		    playerOneWins++;
+		    $("#black").text(playerOneWins);
+		} else {
+		    playerTwoWins++;
+		    $("#red").text(playerTwoWins);
+		}
     	return gameRunnung = false;
     }
     
