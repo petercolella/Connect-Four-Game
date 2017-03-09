@@ -3,8 +3,10 @@ $(document).ready(function() {
     var player = 1;
     var table = $('table');
     var turn = $('#turn');
+    var gameRunnung = true;
 
     $('td').click(function() {
+    	if (gameRunnung) {
     	td = $(this);
     	var square = squareHasChecker(td);
     	if (!square) {
@@ -19,6 +21,9 @@ $(document).ready(function() {
     		}
     	} else {
     		alert('This square already has a checker!');
+    	}
+    	} else {
+    		alert('Game over man, game over!');
     	}
     });
 
@@ -203,12 +208,15 @@ $(document).ready(function() {
     function reset(table) {
     	table.find('td').each(function() {
     		$(this).removeClass('black').removeClass('red');
-    	});
+    	}
+    	);
+    	return gameRunnung = true;
     }
 
     function winner() {
     	whichCheckerForCurrentPlayer(player);
     	setTimeout(alert('Player ' + player + ' is the winner!'), 10);
+    	return gameRunnung = false;
     }
     
 });
