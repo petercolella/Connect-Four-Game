@@ -26,7 +26,7 @@ Player One plays the black pieces and Player Two plays the red pieces. Player On
 
 ## Wireframe
 
-![Wireframe](https://github.com/iamsydsmith/tic-tac-toe/blob/master/img/Tic_Tac_Toe_-_wireframe.png)
+![Wireframe](https://github.com/petercolella/Connect-Four-Game/blob/master/images/Connect%20Four%20Mockup.png)
 
 
 ## Future Development
