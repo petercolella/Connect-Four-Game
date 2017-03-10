@@ -1,11 +1,13 @@
 body {
-	display: flex;
-	flex-direction: column;
-	flex-shrink: default;
-	max-height: 800px;
+	/*display: flex;
+	flex-direction: column;*/
+	height: 100%;
 	align-items: center;
 	font-family: arial, helvetica, sans-serif;
 	background-color: #46AAFF;
+	display: -webkit-flex;
+    -webkit-flex-direction: column;
+    height: 100%;
 }
 
 h1 {

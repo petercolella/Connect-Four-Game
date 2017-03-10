@@ -3,59 +3,61 @@ $(document).ready(function() {
     var player = 1;
     var table = $('table');
     var turn = $('#turn');
-    var gameRunnung = true;
+    var gameRunning = true;
     var moves = 1;
     var playerOneWins = 0;
     var playerTwoWins = 0;
 
     $('td').click(function() {
-    	if (gameRunnung) {
+    	if (gameRunning) {
     		td = $(this);
     		var square = squareHasChecker(td);
 	    	if (!square) {
 	    		var checker = whichCheckerForCurrentPlayer(player);
-	    		chooseSquare(td, checker);
-	    		if (moves > 41) {
-	    			alert('The board is full. There are no more moves!')
-	    		} else if (hasPlayerWon(table, checker)) {
-	    			winner();
+	    		var rowIndex = $(this).index();
+				var sixthRow = $("tr:nth-child(6) > td").eq(rowIndex);
+				var fifthRow = $("tr:nth-child(5) > td").eq(rowIndex);
+				var fourthRow = $("tr:nth-child(4) > td").eq(rowIndex);
+				var thirdRow = $("tr:nth-child(3) > td").eq(rowIndex);
+				var secondRow = $("tr:nth-child(2) > td").eq(rowIndex);
+	    		if (sixthRow.html() == '') {
+	    			chooseSquare(sixthRow, checker);
+	    		} else if (fifthRow.html() == '') {
+	    			chooseSquare(fifthRow, checker);
+	    		} else if (fourthRow.html() == '') {
+	    			chooseSquare(fourthRow, checker);
+	    		} else if (thirdRow.html() == '') {
+	    			chooseSquare(thirdRow, checker);
+	    		} else if (secondRow.html() == '') {
+	    			chooseSquare(secondRow, checker);
 	    		} else {
+	    			chooseSquare(td, checker);
+	    		}
+	    			if (moves > 41) {
+	    				alert('The board is full. There are no more moves!')
+	    			} else if (hasPlayerWon(table, checker)) {
+	    			winner();
+	    			} else {
 	    			player = nextPlayer(player);
 	    			whosTurnIsIt(turn, player);
 	    			moves++;
-	    			var cell = $('td');
-	    			var idOfCell = $(this).attr('id');
-    				// console.log(idOfCell);
-    				$('td').click(function() {
-    					var myCol = $(this).index();
-    					var $tr = $(this).closest('tr');
-    					var myRow = $tr.index();
-    					console.log(myRow, myCol);
-    					console.log($(this).rows[myRow].cells[myCol]);
-					});
-	    		}
+	    		};
 	    	} else {
 	    		alert('This square already has a checker!');
-	    	}
+	    	};
     	} else {
+    		document.getElementById('bill').play();
     		alert('Game over man, game over!');
-    	}
+    	};
     });
 
     $('.btn').click(function() {
     	player = 1;
-    	gameRunnung = true;
+    	gameRunning = true;
     	moves = 1;
     	reset(table);
     	whosTurnIsIt(turn, player);
     })
-
-    function isNextSquareDownEmpty(td) {
-    	var id = $('td').attr('id');
-    	console.log(id);
-    	var idToString = id.toString;
-
-    }
 
     function squareHasChecker(td) {
     	if (td.hasClass('black') || td.hasClass('red')) {
@@ -276,7 +278,7 @@ $(document).ready(function() {
 		    playerTwoWins++;
 		    $("#red").text(playerTwoWins);
 		}
-    	return gameRunnung = false;
+    	return gameRunning = false;
     }
     
 });

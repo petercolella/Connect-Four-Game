@@ -11,7 +11,7 @@
 	<h1>CONNECT FOUR</h1>
 	<table class="grid">
 		<tbody>
-			<tr class="row">
+			<tr id="0" class="row">
 				<td id="a1" class="square"></td>
 				<td id="a2" class="square"></td>
 				<td id="a3" class="square"></td>
@@ -20,7 +20,7 @@
 				<td id="a6" class="square"></td>
 				<td id="a7" class="square"></td>
 			</tr>
-			<tr class="row">
+			<tr id="1" class="row">
 				<td id="b1" class="square"></td>
 				<td id="b2" class="square"></td>
 				<td id="b3" class="square"></td>
@@ -29,7 +29,7 @@
 				<td id="b6" class="square"></td>
 				<td id="b7" class="square"></td>
 			</tr>
-			<tr class="row">
+			<tr id="2" class="row">
 				<td id="c1" class="square"></td>
 				<td id="c2" class="square"></td>
 				<td id="c3" class="square"></td>
@@ -38,7 +38,7 @@
 				<td id="c6" class="square"></td>
 				<td id="c7" class="square"></td>
 			</tr>
-			<tr class="row">
+			<tr id="3" class="row">
 				<td id="d1" class="square"></td>
 				<td id="d2" class="square"></td>
 				<td id="d3" class="square"></td>
@@ -47,7 +47,7 @@
 				<td id="d6" class="square"></td>
 				<td id="d7" class="square"></td>
 			</tr>
-			<tr class="row">
+			<tr id="4" class="row">
 				<td id="e1" class="square"></td>
 				<td id="e2" class="square"></td>
 				<td id="e3" class="square"></td>
@@ -56,7 +56,7 @@
 				<td id="e6" class="square"></td>
 				<td id="e7" class="square"></td>
 			</tr>
-			<tr class="row">
+			<tr id="5" class="row">
 				<td id="f1" class="square"></td>
 				<td id="f2" class="square"></td>
 				<td id="f3" class="square"></td>
@@ -64,6 +64,15 @@
 				<td id="f5" class="square"></td>
 				<td id="f6" class="square"></td>
 				<td id="f7" class="square"></td>
+			</tr>
+			<tr class="row" style="display:none">
+				<td>s</td>
+				<td>u</td>
+				<td>c</td>
+				<td>c</td>
+				<td>e</td>
+				<td>s</td>
+				<td>s</td>
 			</tr>
 		</tbody>
 	</table>
@@ -81,6 +90,6 @@
 			<p id="red" class="score">0</p>
 		</div>
 	</div>
-	
+<audio id="bill" src="audio/gameover.wav" preload="auto"></audio>	
 </body>
 </html>
