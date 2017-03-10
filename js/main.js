@@ -61,11 +61,9 @@ $(document).ready(function() {
 
     // Functionality of New Game button.
     $('#new-game').click(function() {
-    	player = 1;
     	gameRunning = true;
     	moves = 1;
     	reset(table);
-    	whosTurnIsIt(turn, player);
     })
 
     // Functionality of New Score button.
@@ -127,7 +125,7 @@ $(document).ready(function() {
     	table.find('td').each(function() {
     		$(this).removeClass('black').removeClass('red').empty();
     	})
-    }
+	}
 
     // Alerts who won and updates nimber of games won.
     function winner() {
@@ -141,7 +139,7 @@ $(document).ready(function() {
 		    playerTwoWins++;
 		    $("#red").text(playerTwoWins);
 		}
-    	return gameRunning = false;
+		return gameRunning = false;
     }
 
     // Checks all possible winning combinations in the longest, least imaginative way.
