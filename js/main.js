@@ -60,12 +60,20 @@ $(document).ready(function() {
     });
 
     // Functionality of New Game button.
-    $('.btn').click(function() {
+    $('#new-game').click(function() {
     	player = 1;
     	gameRunning = true;
     	moves = 1;
     	reset(table);
     	whosTurnIsIt(turn, player);
+    })
+
+    // Functionality of New Score button.
+    $('#new-score').click(function() {
+    	playerOneWins = 0;
+    	$("#black").text(playerOneWins);
+    	playerTwoWins = 0;
+    	$("#red").text(playerTwoWins);
     })
 
     // Checks if a square is occupied.
@@ -112,6 +120,28 @@ $(document).ready(function() {
     	} else {
     		$('#turn').css("background", "red").css("color", "white");
     	}
+    }
+
+    // Resets the board by clearing the classes.
+    function reset(table) {
+    	table.find('td').each(function() {
+    		$(this).removeClass('black').removeClass('red').empty();
+    	})
+    }
+
+    // Alerts who won and updates nimber of games won.
+    function winner() {
+    	whichCheckerForCurrentPlayer(player);
+    	document.getElementById('yay').play();
+    	alert('Player ' + player + ' is the winner!');
+    	if (player == 1) {
+		    playerOneWins++;
+		    $("#black").text(playerOneWins);
+		} else {
+		    playerTwoWins++;
+		    $("#red").text(playerTwoWins);
+		}
+    	return gameRunning = false;
     }
 
     // Checks all possible winning combinations in the longest, least imaginative way.
@@ -275,28 +305,5 @@ $(document).ready(function() {
     	won = 1;
     	}
     	return won;
-	}
-
-	// Resets the board by clearing the classes.
-    function reset(table) {
-    	table.find('td').each(function() {
-    		$(this).removeClass('black').removeClass('red').empty();
-    	})
-    }
-
-    // Alerts who won and updates nimber of games won.
-    function winner() {
-    	whichCheckerForCurrentPlayer(player);
-    	document.getElementById('yay').play();
-    	alert('Player ' + player + ' is the winner!');
-    	if (player == 1) {
-		    playerOneWins++;
-		    $("#black").text(playerOneWins);
-		} else {
-		    playerTwoWins++;
-		    $("#red").text(playerTwoWins);
-		}
-    	return gameRunning = false;
-    }
-    
+	}    
 });

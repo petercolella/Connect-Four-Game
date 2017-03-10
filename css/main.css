@@ -103,7 +103,7 @@ td {
   	align-content: center;
   	flex-wrap: wrap;
   	width: 100px;
-  	margin: 0 auto;
+  	margin: 10px auto;
   	min-height: 30px;
   	cursor: pointer;
 }
