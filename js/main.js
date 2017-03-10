@@ -1,5 +1,6 @@
 $(document).ready(function() {
     
+    // Initial variable values.
     var player = 1;
     var table = $('table');
     var turn = $('#turn');
@@ -8,10 +9,13 @@ $(document).ready(function() {
     var playerOneWins = 0;
     var playerTwoWins = 0;
 
+    // Functionality of clicking a column.
     $('td').click(function() {
+    	// Game must be running to make a move.
     	if (gameRunning) {
     		td = $(this);
     		var square = squareHasChecker(td);
+	    	// Determines the square that results from clicking a column.
 	    	if (!square) {
 	    		var checker = whichCheckerForCurrentPlayer(player);
 	    		var rowIndex = $(this).index();
@@ -33,8 +37,10 @@ $(document).ready(function() {
 	    		} else {
 	    			chooseSquare(td, checker);
 	    		}
+	    			// Ends the game if the board is full.
 	    			if (moves > 41) {
 	    				alert('The board is full. There are no more moves!')
+	    				turn.html("Nobody won!");
 	    			} else if (hasPlayerWon(table, checker)) {
 	    			winner();
 	    			} else {
@@ -42,15 +48,18 @@ $(document).ready(function() {
 	    			whosTurnIsIt(turn, player);
 	    			moves++;
 	    		};
+	    	// Result of clicking on an occupied square.
 	    	} else {
 	    		alert('This square already has a checker!');
 	    	};
+	    // Result of clicking on the board after a winner and before a new game.
     	} else {
     		document.getElementById('bill').play();
     		alert('Game over man, game over!');
     	};
     });
 
+    // Functionality of New Game button.
     $('.btn').click(function() {
     	player = 1;
     	gameRunning = true;
@@ -59,6 +68,7 @@ $(document).ready(function() {
     	whosTurnIsIt(turn, player);
     })
 
+    // Checks if a square is occupied.
     function squareHasChecker(td) {
     	if (td.hasClass('black') || td.hasClass('red')) {
     		return 1;
@@ -67,6 +77,7 @@ $(document).ready(function() {
     	}
     }
 
+    // Appends an image class to chosen square.
     function chooseSquare(td, checker) {
     	if (player == 1) {
 			return td.addClass(checker).append("<img class='piece' src='images/black_checker.jpg'/>");    		
@@ -75,6 +86,7 @@ $(document).ready(function() {
     	}
     }
 
+    // Determines the checker class for the current player.
     function whichCheckerForCurrentPlayer(player) {
     	if (player == 1) {
     		return 'black';
@@ -83,6 +95,7 @@ $(document).ready(function() {
     	}
     }
 
+    // Alternates player turns.
     function nextPlayer(player) {
     	if (player == 1) {
     		return player = 2;
@@ -91,6 +104,7 @@ $(document).ready(function() {
     	}
     }
 
+    // Indicates whose turn it is and styles the DOM element.
     function whosTurnIsIt(turn, player) {
     	turn.html("It's your turn Player " + player + "!");
     	if (player == 1) {
@@ -100,6 +114,7 @@ $(document).ready(function() {
     	}
     }
 
+    // Checks all possible winning combinations in the longest, least imaginative way.
     function hasPlayerWon(table, checker) {
     	var won = 0;
     	if (table.find('#a1').hasClass(checker) && table.find('#a2').hasClass(checker) && table.find('#a3').hasClass(checker) && table.find('#a4').hasClass(checker)) {
@@ -262,14 +277,17 @@ $(document).ready(function() {
     	return won;
 	}
 
+	// Resets the board by clearing the classes.
     function reset(table) {
     	table.find('td').each(function() {
     		$(this).removeClass('black').removeClass('red').empty();
     	})
     }
 
+    // Alerts who won and updates nimber of games won.
     function winner() {
     	whichCheckerForCurrentPlayer(player);
+    	document.getElementById('yay').play();
     	alert('Player ' + player + ' is the winner!');
     	if (player == 1) {
 		    playerOneWins++;
