@@ -8,6 +8,7 @@ $(document).ready(function() {
     var moves = 1;
     var playerOneWins = 0;
     var playerTwoWins = 0;
+    var whoGoesFirst = 1;
 
     // Functionality of clicking a column.
     $('td').click(function() {
@@ -38,7 +39,7 @@ $(document).ready(function() {
 	    			chooseSquare(td, checker);
 	    		}
 	    			// Ends the game if the board is full.
-	    			if (moves >= 42 && hasPlayerWon(table, checker)) {
+	    			if (moves <= 42 && hasPlayerWon(table, checker)) {
 	    				// hasPlayerWon(table, checker);
 	    				winner();
 	    			} else if (moves >= 42) {
@@ -67,6 +68,8 @@ $(document).ready(function() {
     	gameRunning = true;
     	moves = 1;
     	reset(table);
+    	whoGoesFirst++;
+    	// player = whoGoesFirst;
     })
 
     // Functionality of New Score button.
@@ -130,7 +133,7 @@ $(document).ready(function() {
     	})
 	}
 
-    // Alerts who won and updates nimber of games won.
+    // Alerts who won and updates number of games won.
     function winner() {
     	whichCheckerForCurrentPlayer(player);
     	document.getElementById('yay').play();
