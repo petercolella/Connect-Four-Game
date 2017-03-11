@@ -38,15 +38,18 @@ $(document).ready(function() {
 	    			chooseSquare(td, checker);
 	    		}
 	    			// Ends the game if the board is full.
-	    			if (moves > 41) {
-	    				alert('The board is full. There are no more moves!')
+	    			if (moves >= 42 && hasPlayerWon(table, checker)) {
+	    				// hasPlayerWon(table, checker);
+	    				winner();
+	    			} else if (moves >= 42) {
+	    				alert('The board is full. There are no more moves!');
 	    				turn.html("Nobody won!");
-	    			} else if (hasPlayerWon(table, checker)) {
-	    			winner();
+	    				// hasPlayerWon(table, checker);
+	    				// winner();
 	    			} else {
-	    			player = nextPlayer(player);
-	    			whosTurnIsIt(turn, player);
-	    			moves++;
+	    				player = nextPlayer(player);
+	    				whosTurnIsIt(turn, player);
+	    				moves++;
 	    		};
 	    	// Result of clicking on an occupied square.
 	    	} else {
