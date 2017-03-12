@@ -21,24 +21,13 @@ $(document).ready(function() {
 	    	if (!square) {
 	    		var checker = whichCheckerForCurrentPlayer(player);
 	    		var rowIndex = $(this).index();
-				var sixthRow = $("tr:nth-child(6) > td").eq(rowIndex);
-				var fifthRow = $("tr:nth-child(5) > td").eq(rowIndex);
-				var fourthRow = $("tr:nth-child(4) > td").eq(rowIndex);
-				var thirdRow = $("tr:nth-child(3) > td").eq(rowIndex);
-				var secondRow = $("tr:nth-child(2) > td").eq(rowIndex);
-	    		if (sixthRow.html() == '') {
-	    			chooseSquare(sixthRow, checker);
-	    		} else if (fifthRow.html() == '') {
-	    			chooseSquare(fifthRow, checker);
-	    		} else if (fourthRow.html() == '') {
-	    			chooseSquare(fourthRow, checker);
-	    		} else if (thirdRow.html() == '') {
-	    			chooseSquare(thirdRow, checker);
-	    		} else if (secondRow.html() == '') {
-	    			chooseSquare(secondRow, checker);
-	    		} else {
-	    			chooseSquare(td, checker);
-	    		}
+	    		for (var i = 6; i >= 0; i--) {
+	    			if ($('tr:nth-child(' + i + ') > td').eq(rowIndex).html() == '') {
+	    				var lowestRow = $('tr:nth-child(' + i + ') > td').eq(rowIndex);
+	    				chooseSquare(lowestRow, checker);
+	    				break;
+	    			}
+	    		};
 	    			// Ends the game if the board is full.
 	    			if (hasPlayerWon(table, checker)) {
 	    				winner();
