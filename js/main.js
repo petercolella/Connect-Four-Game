@@ -5,7 +5,7 @@ $(document).ready(function() {
     var table = $('table');
     var turn = $('#turn');
     var gameRunning = true;
-    var moves = 1;
+    var moves = 0;
     var playerOneWins = 0;
     var playerTwoWins = 0;
     var whoGoesFirst = 1;
@@ -16,6 +16,7 @@ $(document).ready(function() {
     	if (gameRunning) {
     		td = $(this);
     		var square = squareHasChecker(td);
+    		moves++;
 	    	// Determines the square that results from clicking a column.
 	    	if (!square) {
 	    		var checker = whichCheckerForCurrentPlayer(player);
@@ -39,18 +40,14 @@ $(document).ready(function() {
 	    			chooseSquare(td, checker);
 	    		}
 	    			// Ends the game if the board is full.
-	    			if (moves <= 42 && hasPlayerWon(table, checker)) {
-	    				// hasPlayerWon(table, checker);
+	    			if (hasPlayerWon(table, checker)) {
 	    				winner();
-	    			} else if (moves >= 42) {
+	    			} else if (moves > 41) {
 	    				alert('The board is full. There are no more moves!');
 	    				turn.html("Nobody won!");
-	    				// hasPlayerWon(table, checker);
-	    				// winner();
 	    			} else {
 	    				player = nextPlayer(player);
 	    				whosTurnIsIt(turn, player);
-	    				moves++;
 	    		};
 	    	// Result of clicking on an occupied square.
 	    	} else {
@@ -66,10 +63,16 @@ $(document).ready(function() {
     // Functionality of New Game button.
     $('#new-game').click(function() {
     	gameRunning = true;
-    	moves = 1;
+    	moves = 0;
     	reset(table);
     	whoGoesFirst++;
-    	// player = whoGoesFirst;
+    	console.log(whoGoesFirst);
+    	if (whoGoesFirst%2 > 0) {
+    		player = 1;
+    	} else {
+    		player = 2;
+    	}
+    	whosTurnIsIt(turn, player);
     })
 
     // Functionality of New Score button.
@@ -119,11 +122,11 @@ $(document).ready(function() {
     // Indicates whose turn it is and styles the DOM element.
     function whosTurnIsIt(turn, player) {
     	turn.html("It's your turn Player " + player + "!");
-    	if (player == 1) {
-    		$('#turn').css("background", "black").css("color", "white");
-    	} else {
-    		$('#turn').css("background", "red").css("color", "white");
-    	}
+	    if (player == 1) {
+	    	$('#turn').css("background", "black").css("color", "white");
+	    } else {
+	    	$('#turn').css("background", "red").css("color", "white");
+	    }
     }
 
     // Resets the board by clearing the classes.
@@ -135,7 +138,7 @@ $(document).ready(function() {
 
     // Alerts who won and updates number of games won.
     function winner() {
-    	whichCheckerForCurrentPlayer(player);
+    	// whichCheckerForCurrentPlayer(player);
     	document.getElementById('yay').play();
     	alert('Player ' + player + ' is the winner!');
     	if (player == 1) {

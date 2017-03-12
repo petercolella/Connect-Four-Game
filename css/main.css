@@ -1,16 +1,13 @@
 body {
-	/*display: flex;
-	flex-direction: column;*/
-	height: 100%;
+	display: flex;
+	flex-direction: column;
 	align-items: center;
-	font-family: arial, helvetica, sans-serif;
+	justify-content: center;
 	background-color: #46AAFF;
-	display: -webkit-flex;
-    -webkit-flex-direction: column;
-    height: 100%;
 }
 
 h1 {
+	font-family: 'Raleway', sans-serif;
 	color: white;
 	font-size: 300%;
 	margin: 0px;
@@ -63,7 +60,8 @@ td {
 	display: flex;
 	justify-content: center;
 	text-align: center;
-	font-size: large;
+	font-family: 'Open Sans', sans-serif;
+	font-size: medium;
 	padding-bottom: 0;
 }
 
