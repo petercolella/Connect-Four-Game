@@ -45,7 +45,7 @@ $(document).ready(function() {
 	    // Result of clicking on the board after a winner and before a new game.
     	} else {
     		document.getElementById('bill').play();
-    		alert('Game over man, game over!');
+    		// alert('Game over man, game over!');
     	};
     });
 
