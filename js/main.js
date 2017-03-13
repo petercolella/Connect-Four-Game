@@ -19,6 +19,8 @@ $(document).ready(function() {
     		moves++;
 	    	// Determines the square that results from clicking a column.
 	    	if (!square) {
+	    		//Added chip falling sound.
+	    		document.getElementById('chip').play();
 	    		var checker = whichCheckerForCurrentPlayer(player);
 	    		var rowIndex = $(this).index();
 	    		for (var i = 6; i >= 0; i--) {
@@ -55,13 +57,15 @@ $(document).ready(function() {
     	moves = 0;
     	reset(table);
     	whoGoesFirst++;
-    	console.log(whoGoesFirst);
     	if (whoGoesFirst%2 > 0) {
     		player = 1;
     	} else {
     		player = 2;
     	}
     	whosTurnIsIt(turn, player);
+    	$('.winner').fadeOut(2000);
+    	$('.playerone').css("animation", "none");
+    	$('.playertwo').css("animation", "none");
     })
 
     // Functionality of New Score button.
@@ -125,17 +129,22 @@ $(document).ready(function() {
     	})
 	}
 
-    // Alerts who won and updates number of games won.
+    // Animates who won and updates number of games won.
     function winner() {
-    	// whichCheckerForCurrentPlayer(player);
+    	$('.winner').remove();
     	document.getElementById('yay').play();
-    	alert('Player ' + player + ' is the winner!');
+    	var newWinnerElement = $("<p>Player " + player + " is the winner!</p>").addClass('winner').insertAfter('button:last').hide();
+    	newWinnerElement.fadeIn(2000);
     	if (player == 1) {
 		    playerOneWins++;
 		    $("#black").text(playerOneWins);
+		    $('.winner').css("animation", "highlightBlack 1s infinite alternate");
+		    $('.playerone').css("animation", "highlightBlack 1s 4 alternate");
 		} else {
 		    playerTwoWins++;
 		    $("#red").text(playerTwoWins);
+		    $('.winner').css("animation", "highlightRed 1s infinite alternate");
+		    $('.playertwo').css("animation", "highlightRed 1s 4 alternate");
 		}
 		return gameRunning = false;
     }

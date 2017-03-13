@@ -105,3 +105,31 @@ td {
   	min-height: 30px;
   	cursor: pointer;
 }
+
+.winner {
+	border: 1px solid white;
+	background-color: white;
+	border-radius: 5px;
+	color: white;
+	width: 180px;
+	margin-right: 60px;
+	margin-left: 60px;
+}
+
+@keyframes highlightBlack {
+	0% {
+		background-color: black;
+	}
+	100% {
+		background-color: #00FF00;
+	}
+}
+
+@keyframes highlightRed {
+	0% {
+		background-color: #FF0000;
+	}
+	100% {
+		background-color: #00FF00;
+	}
+}
