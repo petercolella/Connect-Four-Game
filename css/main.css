@@ -43,11 +43,11 @@ td {
 }
 
 .black {
-	background-color: black;
+	background-color: #181914;
 }
 
 .red {
-	background-color: red;
+	background-color: #A61723;
 }
 
 .piece {
@@ -76,7 +76,7 @@ td {
 
 .playerone {
 	border: 1px solid white;
-	background-color: black;
+	background-color: #181914;
 	border-radius: 10px;
 	color: white;
 	margin: 10px;
@@ -86,7 +86,7 @@ td {
 
 .playertwo {
 	border: 1px solid white;
-	background-color: red;
+	background-color: #A61723;
 	border-radius: 10px;
 	color: white;
 	margin: 10px;
@@ -118,7 +118,7 @@ td {
 
 @keyframes highlightBlack {
 	0% {
-		background-color: black;
+		background-color: #181914;
 	}
 	100% {
 		background-color: #00FF00;
@@ -127,7 +127,7 @@ td {
 
 @keyframes highlightRed {
 	0% {
-		background-color: #FF0000;
+		background-color: #A61723;
 	}
 	100% {
 		background-color: #00FF00;

@@ -116,9 +116,9 @@ $(document).ready(function() {
     function whosTurnIsIt(turn, player) {
     	turn.html("It's your turn Player " + player + "!");
 	    if (player == 1) {
-	    	$('#turn').css("background", "black").css("color", "white");
+	    	$('#turn').css("background", "#181914").css("color", "white");
 	    } else {
-	    	$('#turn').css("background", "red").css("color", "white");
+	    	$('#turn').css("background", "#A61723").css("color", "white");
 	    }
     }
 
